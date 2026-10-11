@@ -102,18 +102,11 @@ $$HS = \text{HMAC-Hash}(K, T)$$
 
 *Supported Hash Algorithms: HMAC-SHA-1 (20 bytes), HMAC-SHA-256 (32 bytes), HMAC-SHA-512 (64 bytes).*
 
-### 3. Dynamic Truncation (DT)
-Dynamic Truncation extracts a 31-bit unsigned integer $P$ from the digest:
-1. **Offset Extraction ($O$)**: The low 4 bits (nibble) of the digest's final byte:
-   $$O = HS[\text{length}(HS) - 1] \ \& \ \text{0x0F}$$
-2. **4-Byte Slice Extraction & MSB Masking ($P$)**: Read 4 contiguous bytes starting at index $O$, masking the Most Significant Bit (MSB) to avoid signed integer ambiguity:
-   $$P = \Big( (HS[O] \ \& \ \text{0x7F}) \ll 24 \Big) \ \Big|\ \Big( (HS[O+1] \ \& \ \text{0xFF}) \ll 16 \Big) \ \Big|\ \Big( (HS[O+2] \ \& \ \text{0xFF}) \ll 8 \Big) \ \Big|\ \Big( HS[O+3] \ \& \ \text{0xFF} \Big)$$
-
-### 4. Code Generation
+### 3. Code Generation
 $$\text{OTP} = P \pmod{10^d}$$
 The integer is zero-padded to $d$ digits (e.g., 6 or 8 digits).
 
-### 5. Verification & Security Rules Pipeline
+### 4. Verification & Security Rules Pipeline
 ```
 [User Submitted OTP] ──► [1. Rate Limiter Check] (Max 5 attempts / 30s lockout)
                                 │ (Pass)
