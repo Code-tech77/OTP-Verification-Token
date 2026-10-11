@@ -18,15 +18,19 @@
 - ⏱️ **Dual Core OTP Engines**:
   - **TOTP (RFC 6238)**: Time-Based One-Time Passwords with customizable time steps ($15\text{s}, 30\text{s}, 60\text{s}$), epoch offsets, configurable digits ($6$ or $8$), and smooth circular SVG countdown progress rings.
   - **HOTP (RFC 4226)**: Event/Counter-Based One-Time Passwords with 64-bit big-endian counter state, manual/automatic incrementing, and counter resynchronization lookahead windows.
+    
 - 📱 **Authenticator App Integration**: Instant QR code generation following standard `otpauth://` URI schemes, compatible with **Google Authenticator**, **Authy**, **1Password**, and **Apple Passwords**.
-- 🔬 **Byte-Level Bitwise HMAC Inspector**: 4-step cryptographic pipeline visualizer dissecting Base32 secret byte expansion, 8-byte big-endian moving factors, full HMAC digests, offset nibble extraction ($O = \text{Digest}[last] \ \& \ 0x0F$), dynamic 31-bit masking ($\& \ 0x7FFFFFFF$), and modulo $10^d$.
+  
 - 🛡️ **Comprehensive Security & Verification Engine**:
   - **Clock Drift Tolerance**: Flexible time-drift validation across custom step intervals ($\pm 0, \pm 1, \pm 2$).
   - **Single-Use Replay Protection Guard**: In-memory token invalidation preventing reuse of submitted OTPs within identical time windows.
   - **Brute-Force Rate Limiter**: Automatic 30-second lockout threshold after 5 consecutive failed verification attempts.
   - **Constant-Time Comparison**: Bitwise XOR equality check (`constantTimeCompare`) eliminating side-channel timing leaks.
+    
 - 🧪 **100% RFC Test Vector Compliance**: Built-in benchmark suite executing official test vectors for RFC 6238 (HMAC-SHA1, SHA256, SHA512 at timestamps 59s, 1.11B s, 1.23B s, 2B s) and RFC 4226 (counters 0–9) with exportable JSON/Markdown audit reports.
+  
 - 🔓 **Hashed Password Decryptor Intro FX**: High-tech cyber decryptor sequence with scrambling hex terminal animations and keyhole unlocking transitions on page refresh.
+  
 - 🎨 **Minimalist Dual-Brand Cyber Aesthetic**: Pitch-black theme (`#020408`) blending the **ArithMatrix Technologies** ($\mathbf{AI_X}$) emerald brand identity with the developer's signature yellow wireframe globe network keyhole logo.
 
 ---
